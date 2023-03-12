@@ -19,12 +19,12 @@ export const Template = ({ children }: TemplateProps) => {
 const Grid = styled.div`
   display: grid;
   background-color: ${colors.black};
-  grid-template-columns: 250px auto;
+  grid-template-columns: 100%;
   grid-template-rows: 118px auto;
   grid-template-areas:
-    "NB NB NB"
-    "CT CT CT";
-  @media (max-width: 600px) {
+    "NB"
+    "CT";
+  @media (max-width: 1000px) {
     height: auto;
 
     grid-template-areas:
@@ -45,12 +45,4 @@ const Content = styled.div`
   grid-template-rows: unset;
   overflow: auto;
   grid-template-columns: unset;
-
-  ::-webkit-scrollbar {
-    border-radius: 10px;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-  }
 `;

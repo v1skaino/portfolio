@@ -44,7 +44,11 @@ export const MainContent = () => {
         </ButtonArea>
       </DataInfo>
       <AnimationContainer>
-        <Lottie options={defaultOptions} />
+        <Lottie
+          height={size.width > 1000 ? 800 : "auto"}
+          width={size.width > 1000 ? 800 : "auto"}
+          options={defaultOptions}
+        />
       </AnimationContainer>
     </Container>
   );

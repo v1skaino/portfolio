@@ -1,68 +1,70 @@
+import astronautAnimation from "@assets/animations/astronaut.json";
+import profilePicture from "@assets/me.jpg";
 import Label from "@src/components/label";
+import useWindowSize from "@src/shared/hooks/getWindowSize";
 import { colors } from "@src/shared/themes/colors";
+import { ageCalc } from "@src/shared/utils/functions";
+import { t } from "i18next";
+import Lottie, { Options } from "react-lottie";
 import styled from "styled-components";
-import profilePicture from "../../../assets/me.jpg";
 export const About = () => {
+  const size = useWindowSize();
+  const defaultOptions: Options = {
+    loop: true,
+    autoplay: true,
+    animationData: astronautAnimation,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
   return (
     <Container id="about">
       <Image url={profilePicture} />
       <TextArea>
-        <h1>Sobre</h1>
+        <h1 style={{ marginBottom: 10 }}>{t("home:about")}</h1>
         <Label color={colors.white}>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book. It has survived not only
-          five centuries, but also the leap into electronic typesetting,
-          remaining essentially unchanged. It was popularised in the 1960s with
-          the release of Letraset sheets containing Lorem Ipsum passages, and
-          more recently with desktop publishing software like Aldus PageMaker
-          including versions of Lorem Ipsum Lorem Ipsum is simply dummy text of
-          the printing and typesetting industry. Lorem Ipsum has been the
-          industry's standard dummy text ever since the 1500s, when an unknown
-          printer took a galley of type and scrambled it to make a type specimen
-          book. It has survived not only five centuries, but also the leap into
-          electronic typesetting, remaining essentially unchanged. It was
-          popularised in the 1960s with the release of Letraset sheets
-          containing Lorem Ipsum passages, and more recently with desktop
-          publishing software like Aldus PageMaker including versions of Lorem
-          Ipsum Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book. It has survived not only
-          five centuries, but also the leap into electronic typesetting,
-          remaining essentially unchanged. It was popularised in the 1960s with
-          the release of Letraset sheets containing Lorem Ipsum passages, and
-          more recently with desktop publishing software like Aldus PageMaker
-          including versions of Lorem Ipsum Lorem Ipsum is simply dummy text of
-          the printing and typesetting industry. Lorem Ipsum has been the
-          industry's standard dummy text ever since the 1500s, when an unknown
-          printer took a galley of type and scrambled it to make a type specimen
-          book. It has survived not only five centuries, but also the leap into
-          electronic typesetting, remaining essentially unchanged. It was
-          popularised in the 1960s with the release of Letraset sheets
-          containing Lorem Ipsum passages, and more recently with desktop
-          publishing software like Aldus PageMaker including versions of Lorem
-          Ipsum
+          {t("home:resume")}
+          {ageCalc("2001-10-09")}
+          &nbsp;
+          {t("home:yearsOld")}
+          <br />
+          <br />
+          {t("home:resumeII")}
+          <br />
+          <br />
+          {t("home:resumeIII")}
+          <br />
+          <br />
+          {t("home:resumeIV")}
         </Label>
       </TextArea>
-      {/* <label>{ageCalc("2001-10-09")}</label> */}
+      <AnimationContainer>
+        <Lottie
+          width={size.width > 1000 ? 400 : "auto"}
+          height={size.width > 1000 ? 400 : "auto"}
+          options={defaultOptions}
+        />
+      </AnimationContainer>
     </Container>
   );
 };
 const Container = styled.div`
   display: flex;
+  flex-wrap: wrap;
   column-gap: 50px;
+
   z-index: 1;
+  justify-content: space-around;
   align-items: center;
   background-color: ${colors.softBlack};
   width: 100%;
-  min-height: 100vh;
+
   padding: 20px 25px;
+  height: auto;
 
   @media (max-width: 1000px) {
     flex-direction: column;
-    height: auto;
+    row-gap: 50px;
   }
 `;
 
@@ -70,6 +72,8 @@ const Image = styled.div<{ url: string }>`
   display: flex;
   width: 350px;
   height: 600px;
+  min-width: 300px;
+
   border-radius: 10px;
   background: url(${({ url }) => url});
   background-size: cover;
@@ -79,7 +83,7 @@ const Image = styled.div<{ url: string }>`
   box-shadow: 5px 5px 15px 5px #000000;
 
   @media (max-width: 1000px) {
-    width: 90%;
+    width: 300px;
     height: 300px;
   }
 `;
@@ -87,11 +91,22 @@ const Image = styled.div<{ url: string }>`
 const TextArea = styled.div`
   display: flex;
   flex-direction: column;
+  min-width: 40%;
 
   width: 40%;
   justify-content: center;
   color: ${colors.white};
   @media (max-width: 1000px) {
     width: 100%;
+  }
+`;
+
+const AnimationContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  @media (max-width: 1000px) {
+    align-items: flex-start;
+    justify-content: flex-start;
   }
 `;
