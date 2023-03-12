@@ -1,6 +1,10 @@
 {
   "homePT": {
     "contactMe": "Contato",
-    "softwareDeveloper": "Desenvolvedor de Software"
+    "softwareDeveloper": "Desenvolvedor de Software",
+    "about": "Sobre",
+    "home": "Home",
+    "skills": "Habilidades",
+    "contact": "Contato"
   }
 }

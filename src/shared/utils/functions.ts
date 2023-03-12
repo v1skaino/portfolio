@@ -13,3 +13,9 @@ export const handleAlert = async (message: string) => {
     component.style.display = "none";
   }, 3000);
 };
+
+export const smoothScroll = (e: any, path: string) => {
+  let scroll = document.getElementById(path);
+  e.preventDefault();
+  scroll && scroll.scrollIntoView({ behavior: "smooth", block: "start" });
+};

@@ -21,7 +21,7 @@ export const MainContent = () => {
   };
 
   return (
-    <Container>
+    <Container id="home">
       <Particle />
       <DataInfo>
         <Title color={colors.white} size={36}>
@@ -40,7 +40,7 @@ export const MainContent = () => {
           <Label color={colors.white}>React Native</Label>
         </Description>
         <ButtonArea>
-          <EnergyButton anchor="#_" label={t("home:contactMe")} />
+          <EnergyButton anchor="#about" label={t("home:contactMe")} />
         </ButtonArea>
       </DataInfo>
       <AnimationContainer>

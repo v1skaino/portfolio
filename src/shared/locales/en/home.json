@@ -1,6 +1,10 @@
 {
   "homeEN": {
     "contactMe": "Contact Me",
-    "softwareDeveloper": "Software Developer"
+    "softwareDeveloper": "Software Developer",
+    "about": "About",
+    "home": "Home",
+    "skills": "Skills",
+    "contact": "Contact"
   }
 }
