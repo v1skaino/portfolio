@@ -48,7 +48,7 @@ const Txt = styled.label<LabelStyleType>`
   opacity: ${(props) => (props.opacity ? props.opacity : "1")};
   text-align: ${(props) => (props.textAlign ? props.textAlign : "left")};
   font-size: ${(props) => (props.size ? props.size : fontSize.medium)}px;
-  font-family: ${(props) => (props.fontFamily ? props.fontFamily : "Roboto")};
+  font-family: ${(props) => (props.fontFamily ? props.fontFamily : "Ubuntu")};
   color: ${({ color, disabled, colors, disabledColor }) => {
     if (disabled) {
       return disabledColor || colors.black;

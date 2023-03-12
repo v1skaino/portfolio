@@ -1,9 +1,6 @@
 {
   "homePT": {
-    "welcome": "Meus Projetos",
-    "exit": "Sair",
-    "project": "Projetos",
-    "tasks": "Tasks",
-    "schedule": "Agenda"
+    "contactMe": "Contato",
+    "softwareDeveloper": "Desenvolvedor de Software"
   }
 }

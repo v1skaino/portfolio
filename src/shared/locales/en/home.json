@@ -1,9 +1,6 @@
 {
   "homeEN": {
-    "welcome": "My Projects",
-    "exit": "Exit",
-    "project": "Projects",
-    "tasks": "Tasks",
-    "schedule": "Schedule"
+    "contactMe": "Contact Me",
+    "softwareDeveloper": "Software Developer"
   }
 }
