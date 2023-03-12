@@ -1,7 +1,7 @@
 import { colors } from "@src/shared/themes/colors";
 import { SiGmail, SiLinkedin, SiWhatsapp } from "react-icons/si";
 import styled from "styled-components";
-import { handleAlert, ToastNotification } from "../toastNotification";
+import { handleAlert } from "../toastNotification";
 
 export const NavBar = () => {
   const gmail = "custodio.viscaino@gmail.com";
@@ -10,7 +10,7 @@ export const NavBar = () => {
   const handleGmailIconClick = async () => {
     navigator.clipboard.writeText(gmail);
 
-    await handleAlert();
+    await handleAlert(message);
   };
   return (
     <Container>
@@ -39,7 +39,6 @@ export const NavBar = () => {
           />
         </Icons>
       </Links>
-      <ToastNotification message={message} />
     </Container>
   );
 };
@@ -50,8 +49,6 @@ const Container = styled.div`
   justify-content: space-between;
   width: 100%;
   height: 100%;
-
-  background-color: ${colors.black};
 `;
 
 const Logo = styled.div`

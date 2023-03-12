@@ -2,25 +2,24 @@ import { colors } from "@src/shared/themes/colors";
 import { fontSize } from "@src/shared/themes/fonts";
 import styled, { keyframes } from "styled-components";
 
-type ToastNotificationProps = {
-  message: string;
-};
-
-export const ToastNotification = ({ message }: ToastNotificationProps) => {
+export const ToastNotification = () => {
   return (
     <Container id="toastNotification">
-      <ToastArea>{message}</ToastArea>
+      <ToastArea id="toastMessage"></ToastArea>
     </Container>
   );
 };
 
-export const handleAlert = async () => {
+export const handleAlert = async (message: string) => {
   const component = document.getElementById("toastNotification");
+  const text = document.getElementById("toastMessage");
 
-  if (!component) {
+  if (!component || !text) {
     return;
   }
   component.style.display = "flex";
+
+  text.innerHTML = message;
 
   setTimeout(function () {
     component.style.display = "none";
@@ -42,6 +41,7 @@ const Container = styled.div`
   position: absolute;
   bottom: 10px;
   transition: 1s;
+  z-index: 10;
 
   display: none;
   justify-content: center;
@@ -56,5 +56,6 @@ const ToastArea = styled.div`
   border: 1px solid ${colors.primary};
   border-radius: 5px;
   cursor: pointer;
+  color: ${colors.white};
   font-size: ${fontSize.small}px;
 `;
