@@ -1,11 +1,25 @@
+import rocketAnimation from "@assets/animations/rocket.json";
+import universeAnimation from "@assets/animations/universe.json";
 import { EnergyButton } from "@src/components/button";
 import Label from "@src/components/label";
 import { Particle } from "@src/components/particle";
+import useWindowSize from "@src/shared/hooks/getWindowSize";
 import { colors } from "@src/shared/themes/colors";
 import { t } from "i18next";
+import Lottie, { Options } from "react-lottie";
 import styled from "styled-components";
 
 export const MainContent = () => {
+  const size = useWindowSize();
+  const defaultOptions: Options = {
+    loop: true,
+    autoplay: true,
+    animationData: size.width > 1000 ? universeAnimation : rocketAnimation,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+
   return (
     <Container>
       <Particle />
@@ -29,6 +43,9 @@ export const MainContent = () => {
           <EnergyButton anchor="#_" label={t("home:contactMe")} />
         </ButtonArea>
       </DataInfo>
+      <AnimationContainer>
+        <Lottie options={defaultOptions} />
+      </AnimationContainer>
     </Container>
   );
 };
@@ -36,9 +53,12 @@ export const MainContent = () => {
 const Container = styled.div`
   display: flex;
   min-height: 100vh;
-  height: 100%;
+  height: auto;
   width: 100%;
   padding: 0px 0px 0px 60px;
+  @media (max-width: 1000px) {
+    flex-direction: column;
+  }
 `;
 
 const DataInfo = styled.div`
@@ -46,7 +66,11 @@ const DataInfo = styled.div`
   flex-direction: column;
   height: 100%;
   padding-top: 10%;
-  width: 30%;
+  width: 20%;
+  @media (max-width: 1000px) {
+    width: 100%;
+    height: auto;
+  }
 `;
 
 const Title = styled.label<{ color: string; size: number }>`
@@ -72,4 +96,15 @@ const Description = styled.div`
 const ButtonArea = styled.div`
   display: flex;
   width: 250px;
+`;
+
+const AnimationContainer = styled.div`
+  display: flex;
+  width: 80%;
+  height: 100%;
+  pointer-events: none;
+  @media (max-width: 1000px) {
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
 `;
