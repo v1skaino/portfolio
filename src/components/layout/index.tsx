@@ -9,42 +9,48 @@ type TemplateProps = {
 
 export const Template = ({ children }: TemplateProps) => {
   return (
-    <Layout>
-      <NavContainer>
-        <NavBar />
-      </NavContainer>
+    <Grid>
+      <NavBar />
       <Content>{children}</Content>
-    </Layout>
+    </Grid>
   );
 };
 
-const Layout = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100vh;
+const Grid = styled.div`
+  display: grid;
   background-color: ${colors.black};
-`;
+  grid-template-columns: 250px auto;
+  grid-template-rows: 118px auto;
+  grid-template-areas:
+    "NB NB NB"
+    "CT CT CT";
+  @media (max-width: 600px) {
+    height: auto;
 
-const NavContainer = styled.nav`
-  display: flex;
-  width: 100%;
-  position: fixed;
-  height: 100px;
-  z-index: 2;
-  background-color: ${colors.black};
+    grid-template-areas:
+      "NB NB"
+      "CT CT";
+  }
+  min-height: 100vh;
+  height: 100vh;
 `;
 
 const Content = styled.div`
+  grid-area: CT;
   display: flex;
-  margin-top: 100px;
-  position: relative;
   flex-direction: column;
-  width: 100%;
-  min-height: 100vh;
-  height: auto;
-  overflow: auto;
-  background-color: ${colors.black};
 
-  color: ${colors.black};
+  grid-auto-flow: row;
+  grid-auto-rows: 25%;
+  grid-template-rows: unset;
+  overflow: auto;
+  grid-template-columns: unset;
+
+  ::-webkit-scrollbar {
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+  }
 `;

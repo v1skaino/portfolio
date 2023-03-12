@@ -61,16 +61,17 @@ const HamburguerItems = styled.div`
   transition: 1s;
   position: absolute;
   right: 30px;
-  top: 70px;
+  top: 90px;
   display: flex;
   justify-content: center;
   align-items: center;
   border: 2px solid ${colors.white};
   border-radius: 4px;
   flex-direction: column;
-  width: 30%;
-  padding: 15px 0px;
+  width: auto;
+  padding: 15px 10px;
   row-gap: 10px;
+  background-color: ${colors.black};
 `;
 
 const HamburguerDetail = styled.div`

@@ -19,3 +19,14 @@ export const smoothScroll = (e: any, path: string) => {
   e.preventDefault();
   scroll && scroll.scrollIntoView({ behavior: "smooth", block: "start" });
 };
+
+export const ageCalc = (date: string) => {
+  let bday = new Date(date);
+  let today = new Date();
+
+  let distance = today.getTime() - bday.getTime();
+  let daysOld = Math.floor(distance / (1000 * 60 * 60 * 24));
+  let yearOld = Number((daysOld / 365).toFixed(0));
+
+  return yearOld;
+};
