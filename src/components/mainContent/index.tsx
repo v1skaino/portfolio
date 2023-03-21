@@ -20,6 +20,10 @@ export const MainContent = () => {
     },
   };
 
+  const handleCalcSize = () => {
+    return size.width * 0.9;
+  };
+
   return (
     <Container id="home">
       <Particle />
@@ -45,8 +49,8 @@ export const MainContent = () => {
       </DataInfo>
       <AnimationContainer>
         <Lottie
-          height={size.width > 1000 ? 800 : "auto"}
-          width={size.width > 1000 ? 800 : "auto"}
+          height={size.width > 1000 ? 800 : handleCalcSize()}
+          width={size.width > 1000 ? 800 : handleCalcSize()}
           options={defaultOptions}
         />
       </AnimationContainer>

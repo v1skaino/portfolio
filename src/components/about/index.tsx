@@ -66,6 +66,10 @@ const Container = styled.div`
     flex-direction: column;
     row-gap: 50px;
   }
+
+  @media (max-width: 300px) {
+    padding: 0px;
+  }
 `;
 
 const Image = styled.div<{ url: string }>`
@@ -82,9 +86,15 @@ const Image = styled.div<{ url: string }>`
   -webkit-box-shadow: 5px 5px 15px 5px #000000;
   box-shadow: 5px 5px 15px 5px #000000;
 
-  @media (max-width: 1000px) {
+  @media (min-width: 300px) and (max-width: 1000px) {
     width: 300px;
     height: 300px;
+  }
+
+  @media (max-width: 300px) {
+    width: 90%;
+    height: 300px;
+    min-width: 100px;
   }
 `;
 
