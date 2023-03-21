@@ -50,7 +50,7 @@ const Content = styled.div`
   flex-direction: column;
   row-gap: 10px;
   background-color: ${colors.black};
-  z-index: 2;
+  z-index: 1;
   padding: 20px;
   h1 {
     color: ${colors.white};
