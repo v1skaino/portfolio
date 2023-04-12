@@ -9,8 +9,8 @@ export interface ColorsType {
   react: string;
   typescript: string;
   git: string;
-  html: string;
-  css: string;
+  vue: string;
+  next: string;
   vite: string;
 }
 
@@ -25,7 +25,7 @@ export const colors: ColorsType = {
   react: "#61dbfb",
   typescript: "#007acc",
   git: "rgb(222, 76, 54)",
-  html: "#f1662a",
-  css: "#2965f1",
+  vue: "#4cba87",
+  next: "#FFF",
   vite: "#646cff",
 };

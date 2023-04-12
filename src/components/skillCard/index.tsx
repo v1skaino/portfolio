@@ -60,6 +60,7 @@ const Container = styled.div<{ color: string; animated?: boolean }>`
 
   img {
     height: 130px;
+    max-width: 200px;
     transition: 0.5s;
   }
 `;

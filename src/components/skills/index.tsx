@@ -5,8 +5,8 @@ import styled from "styled-components";
 import { SkillCard } from "../skillCard";
 
 export const Skills = () => {
-  const { react, typescript, git, html, css, vite } = colors;
-  const { reactSvg, typescriptSvg, gitSvg, htmlSvg, cssSvg, viteSvg } = SVGs;
+  const { react, typescript, git, vue, next, vite } = colors;
+  const { reactSvg, typescriptSvg, gitSvg, vueSvg, nextSvg, viteSvg } = SVGs;
   return (
     <Content id="skills">
       <h1>{t("home:skills")}</h1>
@@ -32,10 +32,10 @@ export const Skills = () => {
           <SkillCard alt="Git icon" url={gitSvg} title="Git" color={git} />
         </div>
         <div className="item4 item">
-          <SkillCard alt="Html Icon" url={htmlSvg} title="Html" color={html} />
+          <SkillCard alt="VUE Icon" url={vueSvg} title="Vue.js" color={vue} />
         </div>
         <div className="item5 item">
-          <SkillCard alt="Css icon" url={cssSvg} title="Css" color={css} />
+          <SkillCard alt="NextJS icon" url={nextSvg} title="" color={next} />
         </div>
         <div className="item6 item">
           <SkillCard alt="Vite icon" url={viteSvg} title="Vite" color={vite} />
@@ -109,8 +109,8 @@ const Container = styled.div`
       "area1"
       "area2"
       "area3"
-      "area4"
       "area5"
+      "area4"
       "area6";
     align-items: stretch;
     justify-items: stretch;
