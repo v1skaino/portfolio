@@ -24,6 +24,6 @@
       "@themes/*": ["./src/shared/themes/*"]
     }
   },
-  "include": ["src", "./src/index.d.ts"],
+  "include": ["./src", "./src/index.d.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
