@@ -42,7 +42,7 @@ export const MainContent = () => {
           </Label>
           <Label color={colors.white}>Typescript&nbsp;|&nbsp;</Label>
           <Label color={colors.white}>React JS&nbsp;|&nbsp;</Label>
-          <Label color={colors.white}>React Native</Label>
+          <Label color={colors.white}>Next JS</Label>
         </Description>
         <ButtonArea onClick={(e) => smoothScroll(e, "contact")}>
           <EnergyButton label={t("home:contactMe")} />

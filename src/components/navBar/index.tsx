@@ -16,6 +16,7 @@ export const NavBar = () => {
   const handleGmailIconClick = async () => {
     return (window.location.href = `mailto:${gmail}`);
   };
+
   return (
     <Container>
       <Logo>
@@ -68,7 +69,9 @@ export const NavBar = () => {
           />
         </HamburguerMenuArea>
       )}
-      {isMenuOpen && size.width < 1000 && <Hamburguer />}
+      {isMenuOpen && size.width < 1000 && (
+        <Hamburguer setIsMenuOpen={setIsMenuOpen} />
+      )}
     </Container>
   );
 };
@@ -184,4 +187,5 @@ const HamburguerMenuArea = styled.div`
   justify-content: center;
   align-items: center;
   height: 100%;
+  padding: 10px 0px;
 `;

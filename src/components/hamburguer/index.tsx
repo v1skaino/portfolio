@@ -1,36 +1,65 @@
 import { colors } from "@src/shared/themes/colors";
-import { handleAlert, smoothScroll } from "@src/shared/utils/functions";
+import { smoothScroll } from "@src/shared/utils/functions";
 import { t } from "i18next";
+import { Dispatch, SetStateAction } from "react";
 import { SiGmail, SiLinkedin, SiWhatsapp } from "react-icons/si";
 import styled from "styled-components";
 
-export const Hamburguer = () => {
+interface Props {
+  setIsMenuOpen: Dispatch<SetStateAction<boolean>>;
+}
+
+export const Hamburguer = ({ setIsMenuOpen }: Props) => {
   const gmail = "custodio.viscaino@gmail.com";
-  const message = "Copiado para área de transferência!";
 
   const handleGmailIconClick = async () => {
-    navigator.clipboard.writeText(gmail);
-
-    await handleAlert(message);
+    return (window.location.href = `mailto:${gmail}`);
   };
   return (
     <HamburguerItems>
       <HamburguerDetail />
-      <AnchorA onClick={(e) => smoothScroll(e, "home")}>
+      <AnchorA
+        onClick={(e) => {
+          smoothScroll(e, "home");
+          setIsMenuOpen(false);
+        }}
+      >
         {t("home:home")}
       </AnchorA>
-      <AnchorA onClick={(e) => smoothScroll(e, "about")}>
+      <AnchorA
+        onClick={(e) => {
+          smoothScroll(e, "about");
+          setIsMenuOpen(false);
+        }}
+      >
         {t("home:about")}
       </AnchorA>
-      <AnchorA onClick={(e) => smoothScroll(e, "skills")}>
+      <AnchorA
+        onClick={(e) => {
+          smoothScroll(e, "skills");
+          setIsMenuOpen(false);
+        }}
+      >
         {t("home:skills")}
       </AnchorA>
-      <AnchorA onClick={(e) => smoothScroll(e, "contact")}>
+      <AnchorA
+        onClick={(e) => {
+          smoothScroll(e, "contact");
+          setIsMenuOpen(false);
+        }}
+      >
         {t("home:contact")}
       </AnchorA>{" "}
       <Icons>
-        <SiWhatsapp size={18} className="icon iconWpp" />
-        <SiLinkedin size={18} className="icon iconLinkedin" />
+        <a href="https://contate.me/lucas-viscaino" target="_blank">
+          <SiWhatsapp size={18} className="icon iconWpp" />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/lucas-viscaino-713a6b223/"
+          target="_blank"
+        >
+          <SiLinkedin size={18} className="icon iconLinkedin" />
+        </a>
         <SiGmail
           size={18}
           className="icon iconGmail"
@@ -61,7 +90,7 @@ const HamburguerItems = styled.div`
   transition: 1s;
   position: absolute;
   right: 30px;
-  top: 90px;
+  top: 70px;
   display: flex;
   justify-content: center;
   align-items: center;

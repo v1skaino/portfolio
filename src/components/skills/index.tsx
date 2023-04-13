@@ -11,35 +11,52 @@ export const Skills = () => {
     <Content id="skills">
       <h1>{t("home:skills")}</h1>
       <Container>
-        <div className="item1 item">
-          <SkillCard
-            alt="React JS Icon with Rotate Animation"
-            animated
-            url={reactSvg}
-            title="React JS"
-            color={react}
-          />
-        </div>
-        <div className="item2 item">
-          <SkillCard
-            alt="Typescript icon"
-            url={typescriptSvg}
-            title="Typescript"
-            color={typescript}
-          />
-        </div>
-        <div className="item3 item">
-          <SkillCard alt="Git icon" url={gitSvg} title="Git" color={git} />
-        </div>
-        <div className="item4 item">
-          <SkillCard alt="VUE Icon" url={vueSvg} title="Vue.js" color={vue} />
-        </div>
-        <div className="item5 item">
-          <SkillCard alt="NextJS icon" url={nextSvg} title="" color={next} />
-        </div>
-        <div className="item6 item">
-          <SkillCard alt="Vite icon" url={viteSvg} title="Vite" color={vite} />
-        </div>
+        <a href="https://legacy.reactjs.org/" target="_blank">
+          <div className="item1 item">
+            <SkillCard
+              alt="React JS Icon with Rotate Animation"
+              animated
+              url={reactSvg}
+              title="React JS"
+              color={react}
+            />
+          </div>
+        </a>
+        <a href="https://www.typescriptlang.org/" target="_blank">
+          <div className="item2 item">
+            <SkillCard
+              alt="Typescript icon"
+              url={typescriptSvg}
+              title="Typescript"
+              color={typescript}
+            />
+          </div>
+        </a>
+        <a href="https://git-scm.com/" target="_blank">
+          <div className="item3 item">
+            <SkillCard alt="Git icon" url={gitSvg} title="Git" color={git} />
+          </div>
+        </a>
+        <a href="https://vuejs.org/" target="_blank">
+          <div className="item4 item">
+            <SkillCard alt="VUE Icon" url={vueSvg} title="Vue.js" color={vue} />
+          </div>
+        </a>
+        <a href="https://nextjs.org/" target="_blank">
+          <div className="item5 item">
+            <SkillCard alt="NextJS icon" url={nextSvg} title="" color={next} />
+          </div>
+        </a>
+        <a href="https://vitejs.dev/" target="_blank">
+          <div className="item6 item">
+            <SkillCard
+              alt="Vite icon"
+              url={viteSvg}
+              title="Vite"
+              color={vite}
+            />
+          </div>
+        </a>
       </Container>
     </Content>
   );
@@ -67,6 +84,10 @@ const Container = styled.div`
     "area4  area5  area6";
   align-items: stretch;
   justify-items: stretch;
+
+  a {
+    text-decoration: none;
+  }
 
   .item {
     min-height: 300px;
