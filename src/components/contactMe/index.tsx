@@ -1,4 +1,5 @@
 import { colors } from "@src/shared/themes/colors";
+import { t } from "i18next";
 import { SiGmail, SiInstagram, SiLinkedin, SiWhatsapp } from "react-icons/si";
 import styled from "styled-components";
 
@@ -12,11 +13,8 @@ export const ContactMe = () => {
 
   return (
     <Container>
-      <h2>Entre em contato</h2>
-      <p className="paragraph">
-        Gostou do meu perfil e quer me conhecer melhor? Entre em contato via
-        e-mail ou redes sociais!
-      </p>
+      <h2>{t("home:contactWay")}</h2>
+      <p className="paragraph">{t("home:contactDesc")}</p>
       <ContactWay>
         <DataCard hover={wppColor} href="https://contate.me/lucas-viscaino">
           <SiWhatsapp />
