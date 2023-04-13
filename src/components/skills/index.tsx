@@ -1,12 +1,14 @@
 import { SVGs } from "@src/assets";
 import { colors } from "@src/shared/themes/colors";
-import { t } from "i18next";
+import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 import { SkillCard } from "../skillCard";
 
 export const Skills = () => {
   const { react, typescript, git, vue, next, vite } = colors;
   const { reactSvg, typescriptSvg, gitSvg, vueSvg, nextSvg, viteSvg } = SVGs;
+  const { t } = useTranslation();
+
   return (
     <Content id="skills">
       <h1>{t("home:skills")}</h1>

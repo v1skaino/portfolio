@@ -4,11 +4,13 @@ import Label from "@src/components/label";
 import useWindowSize from "@src/shared/hooks/getWindowSize";
 import { colors } from "@src/shared/themes/colors";
 import { ageCalc } from "@src/shared/utils/functions";
-import { t } from "i18next";
+import { useTranslation } from "react-i18next";
 import Lottie, { Options } from "react-lottie";
 import styled from "styled-components";
 export const About = () => {
   const size = useWindowSize();
+  const { t } = useTranslation();
+
   const defaultOptions: Options = {
     loop: true,
     autoplay: true,

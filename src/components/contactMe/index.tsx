@@ -1,5 +1,5 @@
 import { colors } from "@src/shared/themes/colors";
-import { t } from "i18next";
+import { useTranslation } from "react-i18next";
 import { SiGmail, SiInstagram, SiLinkedin, SiWhatsapp } from "react-icons/si";
 import styled from "styled-components";
 
@@ -10,6 +10,7 @@ export const ContactMe = () => {
   const handleGmailIconClick = async () => {
     return (window.location.href = `mailto:${email}`);
   };
+  const { t } = useTranslation();
 
   return (
     <Container id="contact">
@@ -81,6 +82,7 @@ const DataCard = styled.a<{ hover?: string; insta?: boolean }>`
   height: 50px;
   color: ${colors.white};
   background: ${colors.softBlack};
+  cursor: pointer;
 
   :hover {
     color: ${({ hover }) => hover};

@@ -6,11 +6,12 @@ import { Particle } from "@src/components/particle";
 import useWindowSize from "@src/shared/hooks/getWindowSize";
 import { colors } from "@src/shared/themes/colors";
 import { smoothScroll } from "@src/shared/utils/functions";
-import { t } from "i18next";
+import { useTranslation } from "react-i18next";
 import Lottie, { Options } from "react-lottie";
 import styled from "styled-components";
 
 export const MainContent = () => {
+  const { t } = useTranslation();
   const size = useWindowSize();
   const defaultOptions: Options = {
     loop: true,

@@ -30,3 +30,7 @@ export const ageCalc = (date: string) => {
 
   return yearOld;
 };
+
+export const changeAppLanguage = (lng: string) => {
+  localStorage.setItem("i18nextLng", lng);
+};

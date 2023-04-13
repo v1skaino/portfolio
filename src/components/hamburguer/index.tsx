@@ -1,7 +1,8 @@
+import { SVGs } from "@src/assets";
 import { colors } from "@src/shared/themes/colors";
-import { smoothScroll } from "@src/shared/utils/functions";
-import { t } from "i18next";
+import { changeAppLanguage, smoothScroll } from "@src/shared/utils/functions";
 import { Dispatch, SetStateAction } from "react";
+import { useTranslation } from "react-i18next";
 import { SiGmail, SiLinkedin, SiWhatsapp } from "react-icons/si";
 import styled from "styled-components";
 
@@ -15,6 +16,10 @@ export const Hamburguer = ({ setIsMenuOpen }: Props) => {
   const handleGmailIconClick = async () => {
     return (window.location.href = `mailto:${gmail}`);
   };
+
+  const { t, i18n } = useTranslation();
+
+  const { brazil, usa } = SVGs;
   return (
     <HamburguerItems>
       <HamburguerDetail />
@@ -64,6 +69,27 @@ export const Hamburguer = ({ setIsMenuOpen }: Props) => {
           size={18}
           className="icon iconGmail"
           onClick={handleGmailIconClick}
+        />
+      </Icons>
+      <Icons>
+        <img
+          onClick={() => {
+            i18n.changeLanguage("pt-BR");
+            changeAppLanguage("pt-BR");
+          }}
+          className="languageSelector"
+          src={brazil}
+          alt="Brazil Flag"
+        />
+        <hr />
+        <img
+          onClick={() => {
+            i18n.changeLanguage("en");
+            changeAppLanguage("en");
+          }}
+          className="languageSelector"
+          src={usa}
+          alt="USA Flag"
         />
       </Icons>
     </HamburguerItems>
@@ -117,6 +143,12 @@ const HamburguerDetail = styled.div`
 const Icons = styled.div`
   display: flex;
   column-gap: 15px;
+
+  .languageSelector {
+    cursor: pointer;
+    width: 30px;
+    height: 20px;
+  }
 
   .icon {
     color: ${colors.white};

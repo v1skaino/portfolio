@@ -11,8 +11,8 @@ i18n
     fallbackLng: "pt-BR",
     resources: resources,
     detection: {
-      order: ["cookie", "htmlTag", "localStorage", "path", "subdomain"],
-      caches: ["cookie"],
+      order: ["path", "localStorage", "cookie", "htmlTag", "subdomain"],
+      caches: ["localStorage"],
     },
     interpolation: {
       escapeValue: false,

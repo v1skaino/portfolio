@@ -1,8 +1,9 @@
+import { SVGs } from "@src/assets";
 import useWindowSize from "@src/shared/hooks/getWindowSize";
 import { colors } from "@src/shared/themes/colors";
-import { smoothScroll } from "@src/shared/utils/functions";
-import { t } from "i18next";
+import { changeAppLanguage, smoothScroll } from "@src/shared/utils/functions";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { SiGmail, SiLinkedin, SiWhatsapp } from "react-icons/si";
 import styled from "styled-components";
@@ -12,10 +13,13 @@ export const NavBar = () => {
   const gmail = "custodio.viscaino@gmail.com";
   const size = useWindowSize();
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const { i18n, t } = useTranslation();
 
   const handleGmailIconClick = async () => {
     return (window.location.href = `mailto:${gmail}`);
   };
+
+  const { brazil, usa } = SVGs;
 
   return (
     <Container>
@@ -57,6 +61,24 @@ export const NavBar = () => {
             size={18}
             className="icon iconGmail"
             onClick={handleGmailIconClick}
+          />
+          <img
+            onClick={() => {
+              i18n.changeLanguage("pt-BR");
+              changeAppLanguage("pt-BR");
+            }}
+            className="languageSelector"
+            src={brazil}
+            alt="Brazil Flag"
+          />
+          <img
+            onClick={() => {
+              i18n.changeLanguage("en");
+              changeAppLanguage("en");
+            }}
+            className="languageSelector"
+            src={usa}
+            alt="USA Flag"
           />
         </Icons>
       </Links>
@@ -154,6 +176,12 @@ const AnchorA = styled.a`
 const Icons = styled.div`
   display: flex;
   column-gap: 15px;
+
+  .languageSelector {
+    cursor: pointer;
+    width: 30px;
+    height: 20px;
+  }
 
   .icon {
     color: ${colors.white};
