@@ -26,7 +26,7 @@ export const About = () => {
         <h1 style={{ marginBottom: 10 }}>{t("home:about")}</h1>
         <Label color={colors.white}>
           {t("home:resume")}
-          {ageCalc("2001-10-09")}
+          {ageCalc()}
           &nbsp;
           {t("home:yearsOld")}
           <br />
