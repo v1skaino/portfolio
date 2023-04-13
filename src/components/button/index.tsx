@@ -3,12 +3,11 @@ import styled from "styled-components";
 
 type ButtonProps = {
   label: string;
-  anchor: string;
 };
 
-export const EnergyButton = ({ label, anchor }: ButtonProps) => {
+export const EnergyButton = ({ label }: ButtonProps) => {
   return (
-    <ButtonEnergy href={anchor} data-text="Awesome">
+    <ButtonEnergy data-text="Awesome">
       <span>{label}</span>
       <i></i>
     </ButtonEnergy>

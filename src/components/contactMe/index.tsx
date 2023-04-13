@@ -12,7 +12,7 @@ export const ContactMe = () => {
   };
 
   return (
-    <Container>
+    <Container id="contact">
       <h2>{t("home:contactWay")}</h2>
       <p className="paragraph">{t("home:contactDesc")}</p>
       <ContactWay>

@@ -5,6 +5,7 @@ import Label from "@src/components/label";
 import { Particle } from "@src/components/particle";
 import useWindowSize from "@src/shared/hooks/getWindowSize";
 import { colors } from "@src/shared/themes/colors";
+import { smoothScroll } from "@src/shared/utils/functions";
 import { t } from "i18next";
 import Lottie, { Options } from "react-lottie";
 import styled from "styled-components";
@@ -43,8 +44,8 @@ export const MainContent = () => {
           <Label color={colors.white}>React JS&nbsp;|&nbsp;</Label>
           <Label color={colors.white}>React Native</Label>
         </Description>
-        <ButtonArea>
-          <EnergyButton anchor="#about" label={t("home:contactMe")} />
+        <ButtonArea onClick={(e) => smoothScroll(e, "contact")}>
+          <EnergyButton label={t("home:contactMe")} />
         </ButtonArea>
       </DataInfo>
       <AnimationContainer>
