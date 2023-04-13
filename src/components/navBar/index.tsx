@@ -1,6 +1,6 @@
 import useWindowSize from "@src/shared/hooks/getWindowSize";
 import { colors } from "@src/shared/themes/colors";
-import { handleAlert, smoothScroll } from "@src/shared/utils/functions";
+import { smoothScroll } from "@src/shared/utils/functions";
 import { t } from "i18next";
 import { useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
@@ -10,14 +10,11 @@ import { Hamburguer } from "../hamburguer";
 
 export const NavBar = () => {
   const gmail = "custodio.viscaino@gmail.com";
-  const message = "Copiado para área de transferência!";
   const size = useWindowSize();
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
   const handleGmailIconClick = async () => {
-    navigator.clipboard.writeText(gmail);
-
-    await handleAlert(message);
+    return (window.location.href = `mailto:${gmail}`);
   };
   return (
     <Container>
@@ -45,8 +42,16 @@ export const NavBar = () => {
           </AnchorA>
         </Anchor>
         <Icons>
-          <SiWhatsapp size={18} className="icon iconWpp" />
-          <SiLinkedin size={18} className="icon iconLinkedin" />
+          <a href="https://contate.me/lucas-viscaino" target="_blank">
+            <SiWhatsapp size={18} className="icon iconWpp" />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/lucas-viscaino-713a6b223/"
+            target="_blank"
+          >
+            <SiLinkedin size={18} className="icon iconLinkedin" />
+          </a>
+
           <SiGmail
             size={18}
             className="icon iconGmail"
